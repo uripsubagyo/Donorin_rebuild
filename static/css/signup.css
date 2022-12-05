@@ -1,0 +1,111 @@
+
+@media (min-width:1200px) {
+    .body-signup{
+        padding:  49px;
+    }
+    .left-signup-decoration{
+        background: #EB1D36;
+        border-radius: 44px;
+        height: 100vh;
+        color: #FFFFFF;
+
+    }
+
+    .name-left{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        margin: 65px 39px;
+    }
+
+    .tag-line-left{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 61px;
+        margin: 0px 39px;
+        margin-top: 177px;
+    }
+
+    .tag-line2-left{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 61px; 
+        margin: 0px 39px;
+    }
+
+    .decs-left-signup{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 18px;
+        margin: 0px 39px;
+        margin-top: 15px;
+    }
+
+    .carosel-left{
+        border-radius: 15px;
+        margin: 0px 39px;
+        margin-top: 350px;
+    }
+
+    .right-signup-decoration{
+        height: 100vh;
+        margin-left: 85px;
+    }
+
+    .right-signup-decoration h2{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 61px;
+        }
+
+    .img-chose{
+        width: 48px;
+        height: 48px;
+    }
+
+    .btn-sign{
+        width: 100%;
+        background-color: #EB1D36;
+        color: white;
+        height: 77px;
+        margin-top: 50px;
+    }
+
+    .sign-comp p{
+        margin-bottom: 0px;
+    }
+
+    .chose-box{
+        margin-top: 26px;
+        background: #FFFFFF;
+        border: 1px solid #EB1D36;
+        border-radius: 14px;
+        margin-right: 20px;
+        padding: 10px;
+    }
+}
+
+@media (max-width:1200px) {
+    .body-signup{
+        margin-top:100px;
+        margin:10%;
+    }
+    .left-signup-decoration{
+        display: none;
+    }
+
+    .btn-sign{
+        width: 100%;
+        height: 60px;
+    }
+
+    .form-control{
+        height: 60px;
+    }
+
+}

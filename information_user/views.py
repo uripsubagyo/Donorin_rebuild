@@ -14,8 +14,7 @@ def information_user(request):
     username_user = request.user.username
 
     # check user sudah pernah isi atau tidak:
-    information_default = InformationUser.objects.filter(user = request.user).count()
-    is_admin = InformationUser.objects.filter(user = request.user, is_admin_user = True).count()
+    user_atp = InformationUser.objects.filter(user = request.user).count()
     if request.method == "POST":
         print(request)
         full_name = request.POST.get("full_name")
@@ -43,14 +42,12 @@ def information_user(request):
 
     context = {'username': username_user}
 
-    if information_default == 0:
+    if user_atp == 0:
         return render(request, 'build_information_user.html', context)
     else:
-        # direct dashboard information
-
-        usersa = InformationUser.objects.filter(user=request.user, is_admin_user=False).count()
-        if usersa !=0 & is_admin != 0:
-            return redirect('dashboard_user:dashboard_relawan')
+        is_admin = InformationUser.objects.filter(user = request.user, is_admin_user = True).count()
+        if(is_admin != 0):
+            return redirect('dashboard_admin:dashboard_admin')
         else:
             return redirect('dashboard_user:dashboard_relawan')
 
@@ -60,8 +57,8 @@ def information_admin(request):
     username_user = request.user.username
 
     # check user sudah pernah isi atau tidak:
-    information_default = InformationUser.objects.filter(user = request.user).count()
-
+    useratp = InformationUser.objects.filter(user = request.user).count()
+ 
     if request.method == "POST":
         full_name = request.POST.get("full_name")
         blood_group = request.POST.get('blood_group')
@@ -87,13 +84,13 @@ def information_admin(request):
     context = {'username': username_user}
     #direct ke dashboard
 
-    if information_default == 0:
+    if useratp == 0:
         #kondosi belum isi
         render(request, 'build_information_admin.html', context)
     else:
-        usersa = InformationUser.objects.filter(user=request.user, is_admin_user=True)
-        if usersa != 0:
-            return redirect('dashboard:dashboard_admin')
+        is_admin = InformationUser.objects.filter(user = request.user, is_admin_user = True).count()
+        if is_admin != 0:
+            return redirect('dashboard_admin:dashboard_admin')
         else:
-            return redirect('dashboard:dashboard_relawan')
+            return redirect('dashboard_user:dashboard_relawan')
 

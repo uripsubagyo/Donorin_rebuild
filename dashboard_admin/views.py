@@ -8,9 +8,14 @@ from information_user.models import InformationUser
 # @login_required(login_url='login/')
 def dashboard_admin(request):
     context = {}
-    usersa = InformationUser.objects.filter(user=request.user, is_admin_user=True)
+    users = InformationUser.objects.filter(user = request.user)
+    usersa = InformationUser.objects.filter(user=request.user, is_admin_user=True).count()
+    usersr = InformationUser.objects.filter(user=request.user, is_admin_user=False).count()
 
-    if usersa != 0:
-        return render(request, 'dashboard_admin.html', context)
+    if users != 0:
+        if usersa != 0:
+            return render(request, 'dashboard_admin.html', context)
+        else:
+            return redirect('dashboard_user:dashboard_relawan')
     else:
-        return redirect('dashboard:dashboard_relawan')
+        return redirect('information_user:information_user')
