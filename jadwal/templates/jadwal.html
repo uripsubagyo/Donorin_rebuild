@@ -1,0 +1,50 @@
+{% extends 'base-jadwal.html' %}
+
+{% block content %}
+
+<title>Riwayat Donor Darah</title>
+
+<body>
+
+
+<br>
+<p style="text-align:center;">Untuk membuat janji donor darah baru, isi formulir <a href="{% url 'jadwal:book_jadwal' %}">di sini</a>.</p>
+
+<div class="container">
+    <div class="features" id="features">
+        <div class="container">
+            <div class="features-intro">
+                <h3 style="color:black;" class="text-center">Riwayat Donor Darah</h3>
+            </div>        
+    <table class="table table-hover">
+        <thead>
+            <tr style="text-align:center">
+                <th>Tanggal</th>
+                <th>Lokasi</th>
+                <th>Status</th>
+                <th>Pilihan</th>
+            </tr>
+        </thead>
+        <br>
+        <tbody>
+            {% for jadwal in list_jadwal %}
+                <tr>
+                <ol reversed>
+                <td style="text-align:center">{{jadwal.date}}{{jadwal.month}}{{jadwal.year}}</td>
+                <td style="text-align:center">{{jadwal.loc}}</td>
+                <td style="text-align:center">{{jadwal.accepted}}</td>
+                <td style="text-align:center;">
+                    {% if jadwal.accepted != 'Selesai' %}
+                    <a href="{% url 'jadwal:delete' jadwal.id %}">Batalkan</a>
+                    {% endif %}
+                </td>
+                </ol>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+  </div>
+
+</body>
+
+{% endblock content %}

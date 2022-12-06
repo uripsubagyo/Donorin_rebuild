@@ -47,8 +47,9 @@ INSTALLED_APPS = [
     'dashboard_user',
     'dashboard_admin',
     'information_user',
-    'authentication',
-    'corsheaders',
+    #'authentication',
+    #'corsheaders',
+    'jadwal',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "corsheaders.middleware.CorsMiddleware"
+    #"corsheaders.middleware.CorsMiddleware"
 ]
 
 ROOT_URLCONF = 'project_django.urls'
