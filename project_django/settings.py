@@ -154,7 +154,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-7acf.up.railway.app/','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-7acf.up.railway.app']
 #Fot Auth Flutter
 # CORS_ALLOW_ALL_ORIGINS=True
 # CSRF_COOKIE_SECURE = True
