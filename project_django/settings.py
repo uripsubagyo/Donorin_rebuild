@@ -47,9 +47,8 @@ INSTALLED_APPS = [
     'dashboard_user',
     'dashboard_admin',
     'information_user',
-    #'authentication',
-    #'corsheaders',
-    'jadwal',
+    'authentication',
+    # 'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #"corsheaders.middleware.CorsMiddleware"
+    "corsheaders.middleware.CorsMiddleware"
 ]
 
 ROOT_URLCONF = 'project_django.urls'
@@ -154,10 +153,9 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-7acf.up.railway.app']
 #Fot Auth Flutter
-# CORS_ALLOW_ALL_ORIGINS=True
-# CSRF_COOKIE_SECURE = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SAMESITE = 'None'
-# SESSION_COOKIE_SAMESITE = 'None'
+CORS_ALLOW_ALL_ORIGINS=True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'

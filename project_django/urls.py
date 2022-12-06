@@ -25,5 +25,4 @@ urlpatterns = [
     path('dashboard/', include('dashboard_user.urls')),
     path('dashboard-admin/', include('dashboard_admin.urls')),
     path('information/', include('information_user.urls')),
-    path('jadwal/', include('jadwal.urls')),
 ]

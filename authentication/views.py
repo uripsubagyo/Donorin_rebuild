@@ -32,7 +32,7 @@
 #                 "data_user" : []
 #                 # Insert any extra data if you want to pass data to Flutter
 #                 }, status=200)
-                
+
 #         else:
 #             return JsonResponse({
 #             "status": False,
@@ -44,3 +44,29 @@
 #         "status": False,
 #         "message": "Failed to Login, check your email/password."
 #         }, status=401)
+
+# # @csrf_exempt
+# # def signup_flutter(request):
+# #     if request.method == 'POST':
+# # 		data = json.loads(request.body)
+# # 		email = data['email']
+# # 		username = data['username']
+# # 		password = data['password']
+# # 		nama = data['nama']
+# # 		jenis_kelamin = data['jenis_kelamin']
+# # 		institusi = data['institusi']
+# # 		kontak = data['kontak']
+		
+# # 		try:
+# # 			new_user = User.objects.create_user(email, username, password)
+# # 			new_user.nama = nama
+# # 			new_user.jenis_kelamin = jenis_kelamin
+# # 			new_user.institusi = institusi
+# # 			new_user.kontak = kontak
+# # 			new_user.save()
+# # 			return JsonResponse({"instance": "user Dibuat"}, status=200)
+# # 		except:
+# # 			return JsonResponse({"instance": "gagal Dibuat"}, status=400)
+
+# #     else:
+# # 	    return JsonResponse({"instance": "gagal Dibuat"}, status=400)
