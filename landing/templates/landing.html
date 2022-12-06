@@ -1,19 +1,164 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
+{% block content %}
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
-  {% block meta %}
-  {% endblock meta %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .bground2 {
+            background-color:rgb(102, 10, 26);
+        }
+
+        .features{
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: #313437;
+        }
+        .features p{
+            color: #7d8285;
+        }
+        .features h2{
+            font-weight: 900;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+        .features .intro {
+            font-size: 15px;
+            max-width: 500px;
+            margin: 0 auto ;
+        }
+        .features .item{
+            min-height: 100px;
+            padding-left: 80px;
+            margin-bottom: 40px;
+        }
+        .features .item .features-titles{
+            font-size: 20px;
+            font-weight: 900;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: inherit;
+        }
+        .features .item .features-description{
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 767px) {
+            .features{
+                margin-bottom: 10px;
+            }
+            .features h2{
+                margin-bottom: 25px;
+                padding-top: 25px;
+                font-size: 24px;
+            }
+            .features .intro {
+                margin-bottom: 40px;
+            }
+            .features .item {
+                min-height: 0;
+            }
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .footer {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+
+            background-color: #404258;
+            color: white;
+
+            text-align: center;
+
+            min-height: 50px;
+            max-height: 50px;
+
+            padding: 12.5px;
+        }
+    </style>
 </head>
 
 <body>
-  {% block content %}
-  <h1>Heloo This Home Page</h1>
-  {% endblock content %}
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-</html>
+    <!-- NAVBAR TOP -->
+    <nav class="navbar" style="background-color:rgb(102, 10, 26);">
+        <div class="container-fluid">
+            <a style="color:white"class="navbar-brand">&#129656; Donorin</a>
+          <a class="btn btn-outline-light" type="submit" href="{% url 'signin:login_user' %}">Log In</a>
+        </div>
+    </nav>
+
+    <!-- BACKGROUND PAGE -->
+    <div style="background-image: url(https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/313438075_1165895774328703_6240560141678303491_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_ohc=NznM-aGfePUAX9FD6IZ&tn=WlALH6OjrBrOxVJb&_nc_ht=scontent-sin6-2.xx&oh=00_AfDuWUvYYq6Nk764JMQcbmVfgzhkZ7AZVAhoBWgALggtHg&oe=639340C3);background-repeat:no-repeat;background-position: center center;background-size:cover;height:500px;">
+        <h1 style="color:rgb(102, 10, 26); font-size:55px; font-family:verdana; text-align:center; vertical-align:middle; line-height:480px;"><b>Donorin</b></h1>
+    </div>
+
+    <!-- INFO -->
+    <div class="features" id="features">
+        <div class="container">
+            <div class="features-intro">
+                <h2 style="color:rgb(102, 10, 26);" class="text-center">Get to know Donorin</h2>
+            </div>
+
+            <div class="row features">
+
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-map-marker icon"></i>
+                    <h3 class="features-titles">&#129656; Book Jadwal</h3>
+                    <p class="features-description">
+                        Pemesanan jadwal menjadi lebih mudah dan praktis dengan temukan jadwal tempat
+                        atau lokasi donor darah terdekat di sekitar daerah Anda.
+                    </p>
+                </div>
+
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-lock icon"></i>
+                    <h3 class="features-titles">&#129656; Berita Terkini</h3>
+                    <p class="features-description">
+                        Dapatkan berita terbaru mengenai ragam isu penting dalam dunia kesehatan
+                        serta infromasi seputar kegiatan donor darah.
+                    </p>
+                </div>
+                
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-list-alt icon"></i>
+                    <h3 class="features-titles">&#129656; Pantau Kesehatan</h3>
+                    <p class="features-description">
+                        Cek dan pantau kesehatan Anda melalui hasil tes screening kesehatan, 
+                        seperti tensi, hemogoblin, dan lainnya.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD BERITA -->
+    <div class="bground2">
+        <div class="features" id="features">
+            <div class="container">
+                <div class="features-intro">
+                    <h2 style="color:white"class="text-center"><br>What you need before Donorin<br></h2>
+                </div>
+
+        <div class = "login container d-flex flex-column justify-content-center align-items-center">
+            {% for card in listDataNews %}
+            <div class="card" style="width: 70rem; margin: 10px; border-radius: 25px;">
+            <div class="card-body">
+                <div style="display: flex; flex-direction: row">
+                    <h5 class="card-title">{{ card.title }}</h5>
+                </div>
+                <p class="card-text">{{ card.description }}</p>
+                <small class="text-muted">{{ card.user }}</small>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div><br>
+    <div class="footer">©DONORIN, 2022. ALL RIGHTS RESERVED</div>
+</body>
+{% endblock content %}
