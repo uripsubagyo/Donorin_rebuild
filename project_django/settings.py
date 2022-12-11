@@ -47,9 +47,9 @@ INSTALLED_APPS = [
     'dashboard_user',
     'dashboard_admin',
     'information_user',
-    'jadwal'
-    # 'authentication',
-    # 'corsheaders',
+    'jadwal',
+    'authentication',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # "corsheaders.middleware.CorsMiddleware"
+    "corsheaders.middleware.CorsMiddleware"
 ]
 
 ROOT_URLCONF = 'project_django.urls'
@@ -155,8 +155,10 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 
 #Fot Auth Flutter
-# CORS_ALLOW_ALL_ORIGINS=True
-# CSRF_COOKIE_SECURE = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SAMESITE = 'None'
-# SESSION_COOKIE_SAMESITE = 'None'
+CORS_ALLOW_ALL_ORIGINS=True
+CORS_ALLOW_CREDENTIALS=True
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
