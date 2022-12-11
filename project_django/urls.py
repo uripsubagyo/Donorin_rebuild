@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing.urls')),
@@ -26,6 +27,5 @@ urlpatterns = [
     path('dashboard-admin/', include('dashboard_admin.urls')),
     path('information/', include('information_user.urls')),
     path('jadwal/', include('jadwal.urls')),
-    # path('auth/', include('authentication.urls')),
-
+    path('auth/', include('authentication.urls')),
 ]

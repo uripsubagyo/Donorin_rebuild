@@ -13,7 +13,6 @@ def register_user_view(request):
     context = {'form':form}
     if request.method == "POST":
         form = UserCreationForm(request.POST)
-        print(form.is_valid())
         if form.is_valid():
             form.save()
             messages.success(request, 'Akun telah berhasil dibuat!')
