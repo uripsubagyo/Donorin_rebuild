@@ -7,6 +7,9 @@ from django.contrib.auth.decorators import login_required
 from .models import InformationUser
 from django.http import HttpResponse
 import json
+from django.contrib.auth.models import User
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 
 @login_required(login_url='login/')
@@ -67,7 +70,7 @@ def information_admin(request):
         province = request.POST.get('province')
         city = request.POST.get('city')
         gender = request.POST.get('gender')
-
+        
         information = InformationUser(user = request.user, 
                     full_name = full_name, 
                     blood_group=blood_group, 
@@ -93,4 +96,49 @@ def information_admin(request):
             return redirect('dashboard_admin:dashboard_admin')
         else:
             return redirect('dashboard_user:dashboard_relawan')
+
+
+@csrf_exempt
+def information_user_flutter(request):
+    print(request.method)
+    if request.method == "POST":
+
+        username = request.POST['username']
+        full_name = request.POST['full_name']
+        blood_group = request.POST['blood_group']
+        phone_number = request.POST['phone_number']
+        birth_date = request.POST['birth_date']
+        province = request.POST['province']
+        city = 'Jakarta'
+        gender = 'Man'
+
+        user = User.objects.get(username=username)
+
+        info = InformationUser(
+            user = user, 
+            full_name = full_name, 
+            blood_group=blood_group, 
+            phone_number = phone_number, 
+            birth_date = birth_date, 
+            province = province, 
+            city = city, 
+            gender = gender,
+            is_admin_user = False,
+        )
+
+        try:
+            info.save()
+        except Exception as e:
+            print(e)
+        # users_information.save()
+        return JsonResponse({
+                "status": True,
+                "message": "Successfully Submit identity",
+                }, status=200)
+    
+    else:
+        return JsonResponse({
+            "status": False,
+            "message": "Failed to Login, Account Disabled."
+            }, status=401)
 

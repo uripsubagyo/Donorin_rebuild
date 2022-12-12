@@ -18,11 +18,13 @@ def login_flutter(request):
             # Redirect to a success page.
             user_atp = InformationUser.objects.filter(user = user).count()
             user_id = User.objects.get(username=username).pk
+
+            print(user_atp)
             if(user_atp != 0):
                 return JsonResponse({
                 "status": True,
                 "message": "Successfully Logged In!",
-                "user_id": user_id,
+                "user_name" : username,
                 "data_field" : True,
                 # Insert any extra data if you want to pass data to Flutter
                 }, status=200)
@@ -30,7 +32,7 @@ def login_flutter(request):
                 return JsonResponse({
                 "status": True,
                 "message": "Successfully Logged In!",
-                "user_id": user_id,
+                "user_name" : username,
                 "data_field" : False,
                 # Insert any extra data if you want to pass data to Flutter
                 }, status=200)
