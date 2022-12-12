@@ -1,10 +1,10 @@
 from django import forms
 from datetime import datetime
 
-def date_validator(tanggal):
-	current = int(datetime.now().strftime("%j"))
-	inp = int(tanggal.strftime("%j"))
-	if inp <= current: raise forms.ValidationError("Masukkan tanggal yang akan datang")
+# def date_validator(tanggal):
+# 	current = int(datetime.now().strftime("%j"))
+# 	inp = int(tanggal.strftime("%j"))
+# 	if inp <= current: raise forms.ValidationError("Masukkan tanggal yang akan datang")
 
 loc = [
     ('PMI Provinsi DKI Jakarta', 'PMI Provinsi DKI Jakarta'),
@@ -16,5 +16,8 @@ loc = [
 ]
 
 class JadwalForm(forms.Form):
-    tanggal = forms.DateField(validators=[date_validator], widget=forms.DateTimeInput(attrs={'type':'date','class':'form-control'}))
+    # tanggal = forms.DateField(validators=[date_validator], widget=forms.DateTimeInput(attrs={'type':'date','class':'form-control'}))
+    tanggal = forms.CharField(max_length=10,
+                           widget= forms.TextInput
+                           (attrs={'placeholder':'DD-MM-YYYY', 'class': 'form-control'}))
     lokasi = forms.ChoiceField(choices=loc, widget=forms.Select(attrs={'class': 'form-control'}))
